@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { Anime, Count, Data, Stats } from './data.js';
+import type { Anime, Count, Data, SeiyuuData, Stats } from './data.js';
 import { loadData } from './data.js';
 import { monthYear, names, num, year } from './format.js';
 
@@ -17,6 +17,7 @@ export function App() {
 	return (
 		<main className="wrap">
 			<Hero stats={data.stats} />
+			<Voices seiyuu={data.seiyuu} />
 			<ScoreDist stats={data.stats} />
 			<BestByYear data={data} />
 			<TopLists stats={data.stats} />
@@ -65,15 +66,58 @@ function Figure({ n, sub, k }: { n: string; sub?: string; k: string }) {
 	);
 }
 
+function initials(name: string): string {
+	return name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase() ?? '').join('');
+}
+
+function Voices({ seiyuu }: { seiyuu: SeiyuuData | null }) {
+	if (!seiyuu || seiyuu.topSeiyuu.length === 0) return null;
+	const lead = seiyuu.topSeiyuu[0];
+	const leadRoles = lead.roles.slice(0, 3).map((r) => r.character).filter(Boolean);
+	return (
+		<section className="section" aria-labelledby="voices">
+			<p className="section-label">Behind the anime</p>
+			<h2 id="voices">Seiyuu, not just studios</h2>
+			<p className="intro">
+				Every show has a cast behind it — subbed or dubbed. These are the seiyuu who kept turning up:
+				the most main roles across the anime I’ve finished.
+			</p>
+			<div className="seiyuu-lead">
+				<div className="seiyuu-photo lead">
+					{lead.image ? <img src={lead.image} alt="" /> : <span>{initials(lead.name)}</span>}
+				</div>
+				<div>
+					<div className="who">{lead.name}</div>
+					<div className="sub">
+						Shows up in more of my anime than anyone — <b>{lead.mainRoles} main roles</b> across{' '}
+						<b>{lead.animeCount}</b> titles{leadRoles.length ? ` — ${leadRoles.join(', ')}…` : ''}
+					</div>
+				</div>
+			</div>
+			<div className="seiyuu-grid">
+				{seiyuu.topSeiyuu.slice(1, 13).map((s) => (
+					<div className="seiyuu-card" key={s.id}>
+						<div className="seiyuu-photo">
+							{s.image ? <img src={s.image} alt="" loading="lazy" /> : <span>{initials(s.name)}</span>}
+						</div>
+						<div className="sname">{s.name}</div>
+						<div className="scount">{s.mainRoles} roles · {s.animeCount} anime</div>
+						{s.roles[0]?.character ? <div className="srole">as {s.roles[0].character}</div> : null}
+					</div>
+				))}
+			</div>
+		</section>
+	);
+}
+
 function ScoreDist({ stats }: { stats: Stats }) {
 	const max = Math.max(1, ...Object.values(stats.scoreDist));
 	return (
 		<section className="section" aria-labelledby="scores">
 			<p className="section-label">My verdicts</p>
-			<h2 id="scores">How I score</h2>
+			<h2 id="scores">The shape of my taste</h2>
 			<p className="intro">
-				{num(stats.totals.scored)} rated — a real curve now, not a pile of blanks. A generous 7 is my
-				center of gravity.
+				I camp in the 6-to-8 range, rarely dip below 5, and save my 10s for the ones that wrecked me.
 			</p>
 			<div className="scoredist" role="img" aria-label="Score distribution">
 				{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((s) => {

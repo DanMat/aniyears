@@ -6,3 +6,4 @@ private-animelist.xml
 *.xml
 *.xml.gz
 *.tsbuildinfo
+scripts/seiyuu-cache.json
