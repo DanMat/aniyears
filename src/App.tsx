@@ -34,7 +34,7 @@ function Hero({ stats }: { stats: Stats }) {
 	return (
 		<header className="hero">
 			<div className="brand">
-				<span className="dot" aria-hidden="true" /> eyeshot
+				<span className="dot" aria-hidden="true" /> AniYears
 			</div>
 			<h1>
 				<em>{num(t.days)} days</em> of anime,
@@ -240,7 +240,7 @@ function Card({ a }: { a: Anime }) {
 function Footer({ stats }: { stats: Stats }) {
 	return (
 		<footer className="foot">
-			<strong style={{ color: 'var(--muted)' }}>eyeshot</strong> — my anime life, from a MyAnimeList
+			<strong style={{ color: 'var(--muted)' }}>AniYears</strong> — my anime life, from a MyAnimeList
 			export. {num(stats.totals.completed)} completed · {num(stats.totals.days)} days ·{' '}
 			{monthYear(stats.span.first)}–{monthYear(stats.span.last)}.
 			<br />
