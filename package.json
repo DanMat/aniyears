@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "description": "My anime years — a retrospective from MyAnimeList.",
+  "packageManager": "pnpm@10.34.5",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
