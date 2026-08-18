@@ -55,6 +55,14 @@ function normStudio(raw) {
 	return STUDIO_CANON[s] ?? titleCase(s);
 }
 
+// Preserve finish dates across refreshes: a public MAL-API read may not expose
+// per-title dates, so never lose the timeline we already have.
+let prevFinish = {};
+try {
+	const prev = JSON.parse(readFileSync('public/data/anime.json', 'utf8'));
+	prevFinish = Object.fromEntries(prev.filter((a) => a.finish).map((a) => [a.id, a.finish]));
+} catch {}
+
 const anime = list.map((it) => {
 	const a = idx.get(it.id) ?? {};
 	const durSec =
@@ -69,7 +77,7 @@ const anime = list.map((it) => {
 		watched: it.watched || 0,
 		score: it.score || 0,
 		status: it.status,
-		finish: it.finish || null,
+		finish: it.finish || prevFinish[it.id] || null,
 		year: a.animeSeason?.year ?? null,
 		season: a.animeSeason?.season ?? null,
 		studios: [...new Set((a.studios ?? []).map(normStudio))],
