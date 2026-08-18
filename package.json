@@ -9,12 +9,21 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "process": "node scripts/process.mjs",
-    "deploy": "pnpm build && wrangler deploy"
+    "deploy": "pnpm build && wrangler deploy",
+    "pull": "node scripts/pull.mjs",
+    "seiyuu": "node scripts/seiyuu.mjs",
+    "refresh": "node scripts/pull.mjs && node scripts/process.mjs && node scripts/seiyuu.mjs"
   },
-  "dependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "devDependencies": {
-    "@types/react": "^19.0.0", "@types/react-dom": "^19.0.0",
-    "@vitejs/plugin-react": "^6.0.0", "typescript": "^5.9.3",
-    "vite": "^8.0.0", "wrangler": "^4.0.0"
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0",
+    "wrangler": "^4.0.0"
   }
 }

@@ -7,7 +7,7 @@
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 
-const xml = readFileSync('private-animelist.xml', 'utf8');
+const list = JSON.parse(readFileSync('scripts/mal-list.json', 'utf8'));
 const aod = JSON.parse(readFileSync('scripts/aod.json', 'utf8')).data;
 
 // Index the offline DB by MAL id.
@@ -55,27 +55,21 @@ function normStudio(raw) {
 	return STUDIO_CANON[s] ?? titleCase(s);
 }
 
-const g = (b, t) => {
-	const m = b.match(new RegExp(`<${t}>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?</${t}>`));
-	return m ? m[1].trim() : '';
-};
-
-const anime = xml.split('<anime>').slice(1).map((b) => {
-	const id = Number(g(b, 'series_animedb_id'));
-	const a = idx.get(id) ?? {};
+const anime = list.map((it) => {
+	const a = idx.get(it.id) ?? {};
 	const durSec =
 		a.duration?.unit === 'SECONDS' ? a.duration.value : a.duration?.value ? a.duration.value * 60 : null;
 	const community =
 		typeof a.score === 'object' ? (a.score.median ?? a.score.arithmeticMean ?? null) : (a.score ?? null);
 	return {
-		id,
-		title: g(b, 'series_title'),
-		type: g(b, 'series_type'),
-		eps: Number(g(b, 'series_episodes')) || 0,
-		watched: Number(g(b, 'my_watched_episodes')) || 0,
-		score: Number(g(b, 'my_score')) || 0,
-		status: g(b, 'my_status'),
-		finish: g(b, 'my_finish_date') !== '0000-00-00' ? g(b, 'my_finish_date') : null,
+		id: it.id,
+		title: it.title,
+		type: it.type,
+		eps: it.eps || 0,
+		watched: it.watched || 0,
+		score: it.score || 0,
+		status: it.status,
+		finish: it.finish || null,
 		year: a.animeSeason?.year ?? null,
 		season: a.animeSeason?.season ?? null,
 		studios: [...new Set((a.studios ?? []).map(normStudio))],
