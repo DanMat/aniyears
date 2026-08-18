@@ -120,6 +120,11 @@ img { display: block; max-width: 100%; }
 .seiyuu-card .sname { font-weight: 600; font-size: 0.9rem; line-height: 1.2; }
 .seiyuu-card .scount { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); margin-top: 0.15rem; }
 .seiyuu-card .srole { font-size: 0.74rem; color: var(--faint); margin-top: 0.1rem; }
+@media (max-width: 560px) {
+	.seiyuu-lead { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 0.9rem; }
+	.seiyuu-lead .who { font-size: 1.35rem; }
+	.seiyuu-lead .sub { max-width: 34ch; }
+}
 
 /* Best-of-year reel */
 .reel { display: flex; gap: 0.9rem; overflow-x: auto; padding-bottom: 0.8rem; scroll-snap-type: x mandatory; }
