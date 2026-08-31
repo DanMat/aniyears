@@ -7,3 +7,4 @@ private-animelist.xml
 *.xml
 *.xml.gz
 *.tsbuildinfo
+.claude/
