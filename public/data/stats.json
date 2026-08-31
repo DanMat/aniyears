@@ -1,26 +1,26 @@
 {
   "totals": {
-    "library": 1327,
-    "completed": 1029,
-    "watching": 173,
-    "planToWatch": 124,
-    "episodes": 15593,
-    "days": 253,
-    "hours": 6077,
-    "scored": 1029
+    "library": 1369,
+    "completed": 1031,
+    "watching": 215,
+    "planToWatch": 123,
+    "episodes": 15781,
+    "days": 256,
+    "hours": 6149,
+    "scored": 1031
   },
   "span": {
     "first": "2013-10-21",
     "last": "2026-07-30"
   },
-  "meanScore": 6.96,
+  "meanScore": 6.97,
   "scoreDist": {
     "3": 4,
     "4": 25,
     "5": 120,
     "6": 260,
-    "7": 205,
-    "8": 297,
+    "7": 206,
+    "8": 298,
     "9": 97,
     "10": 21
   },
@@ -141,47 +141,47 @@
   "topGenres": [
     {
       "name": "Comedy",
-      "count": 764
+      "count": 766
     },
     {
       "name": "Drama",
-      "count": 679
+      "count": 681
     },
     {
       "name": "Action",
-      "count": 623
+      "count": 625
     },
     {
       "name": "Fantasy",
-      "count": 573
+      "count": 574
     },
     {
       "name": "Romance",
-      "count": 519
+      "count": 520
     },
     {
       "name": "Shounen",
-      "count": 448
+      "count": 449
     },
     {
       "name": "Adventure",
-      "count": 444
+      "count": 445
     },
     {
       "name": "School",
-      "count": 433
+      "count": 434
     },
     {
       "name": "Slice of Life",
-      "count": 383
+      "count": 384
     },
     {
       "name": "Seinen",
-      "count": 348
+      "count": 349
     },
     {
       "name": "Supernatural",
-      "count": 329
+      "count": 331
     },
     {
       "name": "Sci-Fi",
@@ -191,7 +191,7 @@
   "typeMix": [
     {
       "name": "TV",
-      "count": 953
+      "count": 992
     },
     {
       "name": "Movie",
@@ -203,7 +203,7 @@
     },
     {
       "name": "ONA",
-      "count": 50
+      "count": 52
     },
     {
       "name": "Special",
@@ -223,7 +223,7 @@
     },
     {
       "name": "PV",
-      "count": 2
+      "count": 3
     }
   ],
   "topRated": [
