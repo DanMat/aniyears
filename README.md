@@ -3,7 +3,7 @@
 My **anime years** — a retrospective built from a MyAnimeList export. 253 days of anime,
 1,029 completed across 14 years, my score for every one.
 
-**Live:** https://aniyears.danmat.workers.dev
+**Live:** https://aniyears.danmat.dev
 
 - Hero eartime-style figures (days / episodes / completed / backlog)
 - My score distribution, my anime-of-the-year for 10+ years, top studios & genres
