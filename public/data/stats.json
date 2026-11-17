@@ -1,13 +1,13 @@
 {
   "totals": {
-    "library": 1369,
-    "completed": 1031,
+    "library": 1370,
+    "completed": 1032,
     "watching": 215,
     "planToWatch": 123,
-    "episodes": 15781,
+    "episodes": 15791,
     "days": 256,
-    "hours": 6149,
-    "scored": 1031
+    "hours": 6153,
+    "scored": 1032
   },
   "span": {
     "first": "2013-10-21",
@@ -20,7 +20,7 @@
     "5": 120,
     "6": 260,
     "7": 206,
-    "8": 298,
+    "8": 299,
     "9": 97,
     "10": 21
   },
@@ -115,7 +115,7 @@
     },
     {
       "name": "Madhouse",
-      "count": 34
+      "count": 35
     },
     {
       "name": "Toei Animation",
@@ -141,11 +141,11 @@
   "topGenres": [
     {
       "name": "Comedy",
-      "count": 766
+      "count": 767
     },
     {
       "name": "Drama",
-      "count": 681
+      "count": 682
     },
     {
       "name": "Action",
@@ -153,7 +153,7 @@
     },
     {
       "name": "Fantasy",
-      "count": 574
+      "count": 575
     },
     {
       "name": "Romance",
@@ -161,11 +161,11 @@
     },
     {
       "name": "Shounen",
-      "count": 449
+      "count": 450
     },
     {
       "name": "Adventure",
-      "count": 445
+      "count": 446
     },
     {
       "name": "School",
@@ -173,7 +173,7 @@
     },
     {
       "name": "Slice of Life",
-      "count": 384
+      "count": 385
     },
     {
       "name": "Seinen",
@@ -191,7 +191,7 @@
   "typeMix": [
     {
       "name": "TV",
-      "count": 992
+      "count": 993
     },
     {
       "name": "Movie",
